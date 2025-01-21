@@ -4,6 +4,7 @@ import SignUpPage from './pages/AuthPages/SignUpPage/SignUpPage'
 import DashboardPage from './pages/DashboardPage/DashboardPage'
 import SignInPage from './pages/AuthPages/SignInPage/SignInPage'
 import CreateDeclarationPage from './pages/DeclarationPages/NewDeclarationPage/NewDeclarationPage'
+import AllDeclarationsPage from './pages/DeclarationPages/AllDeclarationsPage/AllDeclarationPage'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path='/signin' element={<SignInPage />} />
           <Route path='/declarations/new' element={<CreateDeclarationPage />} />
+          <Route path='/declarations' element={<AllDeclarationsPage />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

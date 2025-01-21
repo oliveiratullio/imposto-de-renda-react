@@ -14,7 +14,7 @@ import {
   DeclarationsBox,
 } from "./style/DashboardStyle";
 
-interface TaxDeclaration {
+export interface TaxDeclaration {
   id: string;
   taxYear: number;
   taxpayerCPF: string;
@@ -60,8 +60,10 @@ const DashboardPage = () => {
           },
         }
       );
-      console.log(response.data, "!!!!!");
-      setDeclarations(response.data);
+      const sortedDeclarations = response.data
+        .sort((a: { taxYear: number; }, b: { taxYear: number; }) => b.taxYear - a.taxYear) // Sort by taxYear descending
+        .slice(0, 6); // Get only the first 6 declarations
+      setDeclarations(sortedDeclarations);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching declarations:", error);
