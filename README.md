@@ -22,6 +22,7 @@ Este projeto uma aplicacao web para fazer declaracao do imposto de renda.
 * Edicao de declaracoes do imposto de renda
 * Listagem de todas as declaracoes do imposto de renda
 * Exclusao de declaracoes do imposto de renda
+* Implementação do login persistente.
 
 ## Tecnologias utilizadas
 
