@@ -22,7 +22,6 @@ function SignUpPage() {
   const handleSubmit = async (event: { preventDefault: () => void; }) => {
     event.preventDefault();
     setError('');
-    console.log(formData);
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/users/signup`, formData);
       navigate('/signin');

@@ -25,13 +25,11 @@ const SignInPage = () => {
     }
 
     function sendForm(e: React.FormEvent<HTMLFormElement>) {
-        console.log(form);
         e.preventDefault();
         setIsDisabled(true);
         axios.post(`${import.meta.env.VITE_API_URL}/users/login`, form)
           .then((response) => {
             const { data }  = response;
-            console.log(data, "@@@@@@");
             login({
                 token: data.user.access_token,
                 user: {
@@ -41,7 +39,6 @@ const SignInPage = () => {
                 }
               });
             setIsDisabled(false);
-            console.log(response);
             navigate("/");
           })
           .catch((error) => {
