@@ -80,7 +80,6 @@ const EditDeclarationPage = () => {
   
     const handleSubmit = async (event: { preventDefault: () => void; }) => {
       event.preventDefault();
-      console.log(formData, "!!!!!")
       try {
         await axios.patch(`${import.meta.env.VITE_API_URL}/tax-declarations/${id}`, formData, {
           headers: { Authorization: `Bearer ${token}` }

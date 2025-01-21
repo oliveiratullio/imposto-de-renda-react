@@ -58,7 +58,6 @@ const CreateDeclarationPage = () => {
         healthExpenses: String(newFormData.healthExpenses || 0),
         numberOfDependents: String(newFormData.numberOfDependents || 0)
       });
-      console.log(taxDue, taxPaid, "aqui");
       newFormData.taxDue = parseFloat(taxDue.toFixed(2));
       newFormData.taxPaid = parseFloat(taxPaid.toFixed(2));
     }
@@ -80,7 +79,6 @@ const CreateDeclarationPage = () => {
         educationExpenses: Number(formData.educationExpenses),
         healthExpenses: Number(formData.healthExpenses),
       };
-    console.log(completedDeclaration)
     try {
        await axios.post(`${import.meta.env.VITE_API_URL}/tax-declarations`, completedDeclaration , {
         headers: {
