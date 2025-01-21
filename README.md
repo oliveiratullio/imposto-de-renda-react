@@ -1,50 +1,37 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# imposto-de-renda-react
 
-Currently, two official plugins are available:
+Este projeto uma aplicacao web para fazer declaracao do imposto de renda.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalacao
 
-## Expanding the ESLint configuration
+1. Clone o repositorio com o comando `git clone git@github.com:oliveiratullio/imposto-de-renda-react.git`
+2. Entre na pasta do projeto e execute o comando `npm install` para instalar as dependencias
+3. Crie um arquivo `.env` com as variaveis de ambiente. O arquivo `.env.example` esta no repositorio como exemplo
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Rodando o projeto
 
-- Configure the top-level `parserOptions` property like this:
+1. Execute o comando `npm run dev` para rodar o projeto em modo de desenvolvimento
+2. Abra o navegador e acesse a url `http://localhost:3000`
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Funcionalidades
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+* Cadastro de usuario
+* Login e logout
+* Criacao de declaracoes do imposto de renda
+* Edicao de declaracoes do imposto de renda
+* Listagem de todas as declaracoes do imposto de renda
+* Exclusao de declaracoes do imposto de renda
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Tecnologias utilizadas
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+* React
+* TypeScript
+* Vite
+* ESLint
+* React Router
+* Styled Components
+
+## Deploy
+
+* https://imposto-de-renda-react-jju9ycghg-oliveiratullios-projects.vercel.app/
