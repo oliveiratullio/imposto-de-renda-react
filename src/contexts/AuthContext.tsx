@@ -10,6 +10,7 @@ export type AuthContextType = {
     };
   } | null;
   login: (authData: { token: string; user: { id: string; name: string; email: string } }) => void;
+  logout: () => void;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -23,12 +24,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setAuth(authData);
     localStorage.setItem("auth", JSON.stringify(authData));
   }
+  function logout(): void {
+    setAuth(null);
+    localStorage.removeItem("auth");
+  }
 
   return (
-    <AuthContext.Provider value={{ auth, login }}>
+    <AuthContext.Provider value={{ auth, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 }
+
 
 export default AuthContext;

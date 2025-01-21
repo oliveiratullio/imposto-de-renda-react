@@ -2,7 +2,8 @@ import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import AuthContext from '../../contexts/AuthContext';
+import AuthContext from '../../../contexts/AuthContext';
+
 
 const Container = styled.div`
   display: flex;
@@ -87,7 +88,7 @@ const SignInPage = () => {
               });
             setIsDisabled(false);
             console.log(response);
-            navigate("/dashboard");
+            navigate("/");
           })
           .catch((error) => {
             alert(error.response?.data || 'Unknown error');
