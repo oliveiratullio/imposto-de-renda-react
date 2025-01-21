@@ -90,7 +90,7 @@ const AllDeclarationsPage = () => {
         {declarations.map(declaration => (
           <DeclarationItem key={declaration.id}>
             <div>
-              Year: {declaration.taxYear} - Due: {declaration.taxDue.toFixed(2)}
+              Ano: {declaration.taxYear} 
             </div>
             <ButtonBox>
                 <Button onClick={() => handleEdit(declaration.id)}>Editar</Button>

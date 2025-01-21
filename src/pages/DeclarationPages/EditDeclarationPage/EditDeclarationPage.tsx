@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../../../components/NavBar';
@@ -30,6 +30,7 @@ const EditDeclarationPage = () => {
       } else {
         fetchDeclaration();
       }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [auth, navigate, id]);
   
     if (!auth) {
