@@ -1,9 +1,9 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import AuthContext from '../../contexts/AuthContext';
 
-// Estilos
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -50,9 +50,18 @@ const Button = styled.button`
   }
 `;
 
+function useAuth() {
+    const context = useContext(AuthContext);
+    if (context === undefined) {
+      throw new Error("useAuth must be used within a AuthProvider");
+    }
+    return context;
+  }
+
 // Componente de Login
 const SignInPage = () => {
     const navigate = useNavigate();
+    const { login } = useAuth();
     const [form, setForm] = useState({ email: "", password: "" });
     const [isDisabled, setIsDisabled] = useState(false);
 
@@ -66,6 +75,16 @@ const SignInPage = () => {
         setIsDisabled(true);
         axios.post(`${import.meta.env.VITE_API_URL}/users/login`, form)
           .then((response) => {
+            const { data }  = response;
+            console.log(data, "@@@@@@");
+            login({
+                token: data.user.access_token,
+                user: {
+                  id: data.user.id,
+                  name: data.user.name,
+                  email: data.user.email,
+                }
+              });
             setIsDisabled(false);
             console.log(response);
             navigate("/dashboard");
