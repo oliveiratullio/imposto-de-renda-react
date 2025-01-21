@@ -61,8 +61,8 @@ const DashboardPage = () => {
         }
       );
       const sortedDeclarations = response.data
-        .sort((a: { taxYear: number; }, b: { taxYear: number; }) => b.taxYear - a.taxYear) // Sort by taxYear descending
-        .slice(0, 6); // Get only the first 6 declarations
+        .sort((a: { taxYear: number; }, b: { taxYear: number; }) => b.taxYear - a.taxYear)
+        .slice(0, 6);
       setDeclarations(sortedDeclarations);
       setLoading(false);
     } catch (error) {
