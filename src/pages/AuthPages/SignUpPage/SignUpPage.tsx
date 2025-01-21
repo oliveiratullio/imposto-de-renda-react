@@ -47,8 +47,8 @@ function SignUpPage() {
           {error && <ErrorMessage>{error}</ErrorMessage>}
         </form>
         <p style={{ textAlign: 'center', marginTop: '20px' }}>
-          Already have an account?{' '}
-          <a href="/login" style={{ color: '#5568FE' }}>Login</a>
+          Já tem uma conta?{' '}
+          <a href="/signin" style={{ color: '#5568FE' }}>Conecte-se</a>
         </p>
       </FormBox>
     </Container>
