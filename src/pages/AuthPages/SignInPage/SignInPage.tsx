@@ -61,7 +61,7 @@ const SignInPage = () => {
                     <Button type="submit" disabled={isDisabled}>Log In</Button>
                 </form>
                 <p style={{ textAlign: 'center', marginTop: '20px' }}>
-                    Don’t have an account? <a href="/register">SignUp</a>
+                    Não tem uma conta? <a href="/signup">Crie uma</a>
                 </p>
             </FormBox>
         </Container>
