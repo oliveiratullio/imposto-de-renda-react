@@ -37,7 +37,7 @@ function SignUpPage() {
   return (
     <Container>
       <FormBox>
-        <Title>Register</Title>
+        <Title>Registre-se</Title>
         <form onSubmit={handleSubmit}>
           <Input type="text" name="name" placeholder="Name" required onChange={handleInputChange} />
           <Input type="email" name="email" placeholder="Email" required onChange={handleInputChange} />
