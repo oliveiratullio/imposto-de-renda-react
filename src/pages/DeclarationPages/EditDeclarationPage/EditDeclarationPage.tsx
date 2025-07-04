@@ -41,7 +41,7 @@ const EditDeclarationPage = () => {
   
     const fetchDeclaration = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_URL}/tax-declarations/${id}`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/tax-declarations/declaration/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = response.data;
@@ -96,31 +96,64 @@ const EditDeclarationPage = () => {
         <Form onSubmit={handleSubmit}>
           <h1>Editar Declaração</h1>
           <Label htmlFor="taxYear">Ano Fiscal</Label>
-          <Input type="number" name="taxYear" value={formData.taxYear.toString()} onChange={handleInputChange} max={currentYear} required />
+          <Input type="number" name="taxYear" value={formData.taxYear} onChange={handleInputChange} max={currentYear} required />
   
           <Label htmlFor="taxpayerCPF">CPF do Contribuinte</Label>
           <Input type="text" name="taxpayerCPF" value={formData.taxpayerCPF} onChange={handleInputChange} required />
   
           <Label htmlFor="annualIncome">Renda Anual</Label>
-          <Input type="number" name="annualIncome" value={formData.annualIncome.toString()} onChange={handleInputChange} required />
-  
-          <Label htmlFor="numberOfDependents">Número de Dependentes</Label>
-          <Input type="number" name="numberOfDependents" value={formData.numberOfDependents.toString()} onChange={handleInputChange} />
+          <Input 
+            type="number" 
+            name="annualIncome" 
+            value={formData.annualIncome !== undefined ? Number(formData.annualIncome) : ''} 
+            onChange={handleInputChange} 
+            step="0.01"
+            required 
+          />
   
           <Label htmlFor="pensionContribution">Contribuição Previdenciária</Label>
-          <Input type="number" name="pensionContribution" value={formData.pensionContribution.toString()} onChange={handleInputChange} />
+          <Input 
+            type="number" 
+            name="pensionContribution" 
+            value={formData.pensionContribution !== undefined ? Number(formData.pensionContribution) : ''} 
+            onChange={handleInputChange} 
+            step="0.01"
+          />
   
           <Label htmlFor="educationExpenses">Despesas com Educação</Label>
-          <Input type="number" name="educationExpenses" value={formData.educationExpenses.toString()} onChange={handleInputChange} />
+          <Input 
+            type="number" 
+            name="educationExpenses" 
+            value={formData.educationExpenses !== undefined ? Number(formData.educationExpenses) : ''} 
+            onChange={handleInputChange} 
+            step="0.01"
+          />
   
           <Label htmlFor="healthExpenses">Despesas Médicas</Label>
-          <Input type="number" name="healthExpenses" value={formData.healthExpenses.toString()} onChange={handleInputChange} />
+          <Input 
+            type="number" 
+            name="healthExpenses" 
+            value={formData.healthExpenses !== undefined ? Number(formData.healthExpenses) : ''} 
+            onChange={handleInputChange} 
+            step="0.01"
+          />
+          <Label htmlFor="numberOfDependents">Número de Dependentes</Label>
+          <Input type="number" name="numberOfDependents" value={formData.numberOfDependents} onChange={handleInputChange} />
+  
+          <Label htmlFor="pensionContribution">Contribuição Previdenciária</Label>
+          <Input type="number" name="pensionContribution" value={formData.pensionContribution} onChange={handleInputChange} />
+  
+          <Label htmlFor="educationExpenses">Despesas com Educação</Label>
+          <Input type="number" name="educationExpenses" value={formData.educationExpenses} onChange={handleInputChange} />
+  
+          <Label htmlFor="healthExpenses">Despesas Médicas</Label>
+          <Input type="number" name="healthExpenses" value={formData.healthExpenses} onChange={handleInputChange} />
   
           <Label htmlFor="taxDue">Cálculo base de imposto</Label>
-          <Input type="number" name="taxDue" value={formData.taxDue.toString()} onChange={() => {}} disabled />
+          <Input type="number" name="taxDue" value={formData.taxDue} onChange={() => {}} disabled />
   
           <Label htmlFor="taxPaid">Imposto a Pagar</Label>
-          <Input type="number" name="taxPaid" value={formData.taxPaid.toString()} onChange={() => {}} disabled />
+          <Input type="number" name="taxPaid" value={formData.taxPaid} onChange={() => {}} disabled />
   
           <Button type="submit">Atualizar Declaração</Button>
         </Form>

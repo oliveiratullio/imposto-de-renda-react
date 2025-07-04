@@ -23,11 +23,11 @@ const CreateDeclarationPage = () => {
     educationExpenses?: number;
     healthExpenses?: number;
   }>({
-    taxYear: 0,
+    taxYear: NaN,
     taxpayerCPF: '',
-    annualIncome: 0,
-    taxDue: 0,
-    taxPaid: 0,
+    annualIncome: NaN,
+    taxDue: NaN,
+    taxPaid: NaN,
     numberOfDependents: undefined,
     pensionContribution: undefined,
     educationExpenses: undefined,
@@ -97,30 +97,30 @@ const CreateDeclarationPage = () => {
       <Form onSubmit={handleSubmit}>
         <h1>Criar Nova Declaração</h1>
         <Label htmlFor="taxYear">Ano Fiscal</Label>
-        <Input type="number" name="taxYear" value={formData.taxYear} onChange={handleInputChange} max={currentYear} required />
+        <Input type="number" name="taxYear" value={formData.taxYear} onWheel={(e) => e.currentTarget.blur()} onChange={handleInputChange} max={currentYear} required />
 
         <Label htmlFor="taxpayerCPF">CPF do Contribuinte</Label>
-        <Input type="text" name="taxpayerCPF" value={formData.taxpayerCPF} onChange={handleInputChange} required />
+        <Input type="text" name="taxpayerCPF" value={formData.taxpayerCPF} onWheel={(e) => e.currentTarget.blur()} onChange={handleInputChange} required />
 
-        <Label htmlFor="annualIncome">Renda Anual</Label>
-        <Input type="number" name="annualIncome" value={formData.annualIncome} onChange={handleInputChange} required />
+        <Label htmlFor="annualIncome">Renda Anual (R$)</Label>
+        <Input type="number" name="annualIncome" value={formData.annualIncome} onWheel={(e) => e.currentTarget.blur()} onChange={handleInputChange} required />
 
         <Label htmlFor="numberOfDependents">Número de Dependentes</Label>
-        <Input type="number" name="numberOfDependents" value={formData.numberOfDependents} onChange={handleInputChange} />
+        <Input type="number" name="numberOfDependents" value={formData.numberOfDependents} onWheel={(e) => e.currentTarget.blur()} onChange={handleInputChange} />
 
-        <Label htmlFor="pensionContribution">Contribuição Previdenciária</Label>
-        <Input type="number" name="pensionContribution" value={formData.pensionContribution} onChange={handleInputChange} />
+        <Label htmlFor="pensionContribution">Contribuição Previdenciária (R$)</Label>
+        <Input type="number" name="pensionContribution" value={formData.pensionContribution} onWheel={(e) => e.currentTarget.blur()} onChange={handleInputChange} />
 
-        <Label htmlFor="educationExpenses">Despesas com Educação</Label>
-        <Input type="number" name="educationExpenses" value={formData.educationExpenses} onChange={handleInputChange} />
+        <Label htmlFor="educationExpenses">Despesas com Educação (R$)</Label>
+        <Input type="number" name="educationExpenses" value={formData.educationExpenses} onWheel={(e) => e.currentTarget.blur()} onChange={handleInputChange} />
 
-        <Label htmlFor="healthExpenses">Despesas Médicas</Label>
-        <Input type="number" name="healthExpenses" value={formData.healthExpenses} onChange={handleInputChange} />
+        <Label htmlFor="healthExpenses">Despesas Médicas (R$)</Label>
+        <Input type="number" name="healthExpenses" value={formData.healthExpenses} onWheel={(e) => e.currentTarget.blur()} onChange={handleInputChange} />
 
-        <Label htmlFor="taxDue">Cálculo base de imposto</Label>
+        <Label htmlFor="taxDue">Cálculo base de imposto (R$)</Label>
         <Input type="number" name="taxDue" value={formData.taxDue} onChange={() => {}} disabled />
 
-        <Label htmlFor="taxPaid">Imposto a Pagar</Label>
+        <Label htmlFor="taxPaid">Imposto a Pagar (R$)</Label>
         <Input type="number" name="taxPaid" value={formData.taxPaid} onChange={() => {}} disabled />
 
         <Button type="submit">Criar Declaração</Button>
